@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^3.1.2",
     "gatsby-plugin-gatsby-cloud": "^2.1.0",
     "gatsby-plugin-image": "^1.1.2",
@@ -12,7 +13,11 @@
     "gatsby-plugin-offline": "^4.1.0",
     "gatsby-plugin-react-helmet": "^4.1.0",
     "gatsby-plugin-sharp": "^3.1.2",
+    "gatsby-plugin-snipcart": "^1.1.2",
+    "gatsby-remark-images": "^4.2.0",
+    "gatsby-source-contentful": "^5.2.0",
     "gatsby-source-filesystem": "^3.1.0",
+    "gatsby-transformer-remark": "^3.2.0",
     "gatsby-transformer-sharp": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -20,7 +25,12 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-helmet": "^6.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.2.1",
+    "typescript": "^4.2.3"
   },
   "keywords": [
     "gatsby"
@@ -28,7 +38,9 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop:gatsby": "tsc --watch",
+    "develop:type-check": "gatsby develop",
+    "develop": "npm-run-all --parallel develop:gatsby develop:type-check",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
