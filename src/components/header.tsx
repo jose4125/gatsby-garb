@@ -20,7 +20,7 @@ interface HeaderProps {
 const Header = ({ siteTitle }: HeaderProps) => {
   useEffect(() => {
     netlifyIdentity.init()
-  })
+  }, [])
 
   return (
     <header
